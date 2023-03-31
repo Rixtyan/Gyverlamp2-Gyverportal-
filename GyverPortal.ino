@@ -217,7 +217,7 @@ void build() {
         M_BOX(GP.LABEL("Точка подключения"); GP.SELECT("pwMatrixDot", "LB_R, LB_U, LT_R, LT_D, RT_L, RT_D, RB_L, RB_U", cfg.matrix - 1););
         M_BOX(GP.LABEL("Группа"); GP.NUMBER("pwGroup", "", cfg.group););
         M_BOX(GP.LABEL("Роль"); GP.SELECT("pwRole", "Мастер, Раб", cfg.role););
-        M_BOX(GP.LABEL("Часы в выключенном режиме"); GP.SWITCH("clockOn", cfg.clock););
+   //     M_BOX(GP.LABEL("Часы в выключенном режиме"); GP.SWITCH("clockOn", cfg.clock);); // чтобы всегда отображались часы на минимальной яркости.
         M_BOX(GP.LABEL("Режим АЦП"); GP.SELECT("pwMode", "Нет, Яркость, Музыка, Яркость и Музыка", cfg.adcMode - 1, 0, 0, 0););
         M_BOX(GP.HR(););
         M_BOX(GP.LABEL("Часовой пояс"); GP.NUMBER("pwGMT", "0", cfg.GMT - 13););
@@ -311,10 +311,10 @@ void action() {
     pwPalette = CUR_PRES.palette;
   }
 
-  if (ui.click("clockOn")) {
-    cfg.clock = ui.getInt("clockOn");
-    //    DEBUGLN(ui.getInt("clockOn"));
-  }
+  //if (ui.click("clockOn")) {
+  //  cfg.clock = ui.getInt("clockOn");
+  //  //    DEBUGLN(ui.getInt("clockOn"));
+  //}
 
   if (ui.click("pwColor")) {
     pwColSld = HueToHex(CUR_PRES.color);
